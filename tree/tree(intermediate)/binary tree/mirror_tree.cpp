@@ -1,10 +1,10 @@
-void mirror(Node* node) 
+void mirror(Node *node)
 {
-    if(node == NULL)
+    if (node == NULL)
         return;
-    auto temp= node->left;
-    node->left=node->right;
-    node->right=temp;
+    auto temp = node->left;
+    node->left = node->right;
+    node->right = temp;
     mirror(node->left);
     mirror(node->right);
 }
