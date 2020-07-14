@@ -1,15 +1,19 @@
-void nthinorder(Node *root, int n)
+class solution
 {
-	static int count = 0;
-	if (root != NULL && count < n)
+public:
+	void nthinorder(Node *root, int n)
 	{
-		nthinorder(root->left, n);
-		count++;
-		if (count == n)
+		static int count = 0;
+		if (root != NULL && count < n)
 		{
-			cout << root->data;
-			return;
+			nthinorder(root->left, n);
+			count++;
+			if (count == n)
+			{
+				cout << root->data;
+				return;
+			}
+			nthinorder(root->right, n);
 		}
-		nthinorder(root->right, n);
 	}
-}
+};
