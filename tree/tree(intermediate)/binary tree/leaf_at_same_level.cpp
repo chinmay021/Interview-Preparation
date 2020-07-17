@@ -1,4 +1,4 @@
-bool checkLeafLevelUtil(Node *root, int level, int &leafHeight)
+bool checkLeafLevelUtil(Node *root, int height, int &leafHeight)
 {
     if (root == NULL)
         return true;
@@ -6,22 +6,22 @@ bool checkLeafLevelUtil(Node *root, int level, int &leafHeight)
     {
         if (leafHeight == 0)
         {
-            leafHeight = level;
+            leafHeight = height;
             return true;
         }
-        if (level == leafHeight)
+        if (height == leafHeight)
         {
             return true;
         }
         else
             return false;
     }
-    return checkLeafLevelUtil(root->left, level + 1, leafHeight) && checkLeafLevelUtil(root->right, level + 1, leafHeight);
+    return checkLeafLevelUtil(root->left, height + 1, leafHeight) && checkLeafLevelUtil(root->right, height + 1, leafHeight);
 }
 
 bool check(Node *root)
 {
     int leafHeight = 0;
-    int level = 0;
-    return checkLeafLevelUtil(root, level, leafHeight);
+    int height = 0;
+    return checkLeafLevelUtil(root, height, leafHeight);
 }
