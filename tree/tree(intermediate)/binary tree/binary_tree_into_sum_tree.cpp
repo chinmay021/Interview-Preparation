@@ -1,17 +1,16 @@
-int toSumTreeUtil(Node *root, int &temp)
+int toSumTreeUtil(Node *root)
 {
     if (root == NULL)
         return 0;
-    int leftSum = toSumTreeUtil(root->left, temp);
-    int rightSum = toSumTreeUtil(root->right, temp);
-    temp = root->data;
+    int leftSum = toSumTreeUtil(root->left);
+    int rightSum = toSumTreeUtil(root->right);
+    int temp = root->data;
     int sum = leftSum + rightSum;
-    root->data = sum;
+    root->data = leftSum + rightSum;
     return sum + temp;
 }
 
 void toSumTree(Node *root)
 {
-    int temp = 0;
-    int temp2 = toSumTreeUtil(root, temp);
+    int temp2 = toSumTreeUtil(root);
 }
