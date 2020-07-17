@@ -1,4 +1,4 @@
-// do a inorder traversal and store it into array and pass into function(minSwaps)
+// do a inorder traversal and store it into array and pass into function(minSwaps) since inorder of BST is sorted so similar to minimum swaps required to sort an unsorted array
 int minSwaps(int arr[], int n)
 {
     pair<int, int> v[n];
