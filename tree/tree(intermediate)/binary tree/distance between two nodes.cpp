@@ -11,7 +11,7 @@ Node *find_LCA(Node *root, int a, int b)
 
     if (left != NULL && right != NULL)
         return root;
-    return (left != NULL) ? left : right;
+    return left ? left : right;
 }
 
 int distance(Node *root, int value, int level)
@@ -22,7 +22,7 @@ int distance(Node *root, int value, int level)
     if (root->data == value)
         return level;
 
-    int l, r;
+    int left, right;
     left = distance(root->left, value, level + 1);
     right = distance(root->right, value, level + 1);
 

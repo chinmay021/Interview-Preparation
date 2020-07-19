@@ -1,24 +1,30 @@
-void sumOfLongRootToLeafPathUtil(Node* root, int current_len, int current_sum, int &max_sum, int &max_len){
-    if(root == NULL){
-        if(current_len > max_len){
-            max_sum=current_sum;
-            max_len=current_len;
+void helper(Node *root, int curr_len, int curr_sum, int &max_sum, int &max_len)
+{
+    if (!root)
+        return;
+    if (!root->left && !root->right)
+    {
+        if (curr_len > max_len)
+        {
+            max_sum = curr_sum + root->data;
+            max_len = curr_len;
         }
-        else if(current_len == max_len && current_sum > max_sum){
-            max_sum=current_sum;
+        else if (curr_len == max_len && curr_sum + root->data > max_sum)
+        {
+            max_sum = curr_sum + root->data;
         }
         return;
     }
-    sumOfLongRootToLeafPathUtil(root->left, current_len+1, current_sum+root->data, max_sum, max_len);
-    sumOfLongRootToLeafPathUtil(root->right, current_len+1, current_sum+root->data, max_sum, max_len);
+    helper(root->left, curr_len + 1, curr_sum + root->data, max_sum, max_len);
+    helper(root->right, curr_len + 1, curr_sum + root->data, max_sum, max_len);
 }
-int sumOfLongRootToLeafPath(Node* root)
+int sumOfLongRootToLeafPath(Node *root)
 {
-    if( root == NULL)
+    if (root == NULL)
         return 0;
-    int current_len=0,current_sum=0;
-    int max_len=0;
-    int max_sum=INT_MIN;
-	sumOfLongRootToLeafPathUtil(root,current_len,current_sum, max_sum, max_len);
-	return max_sum;
+    int curr_len = 0, curr_sum = 0;
+    int max_len = 0;
+    int max_sum = INT_MIN;
+    helper(root, curr_len, curr_sum, max_sum, max_len);
+    return max_sum;
 }

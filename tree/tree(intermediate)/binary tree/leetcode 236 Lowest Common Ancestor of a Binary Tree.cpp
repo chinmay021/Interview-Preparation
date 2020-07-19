@@ -5,7 +5,7 @@ public:
     {
         if (root == NULL)
         {
-            return NULL;
+            return root;
         }
         if (root == p || root == q)
         {
