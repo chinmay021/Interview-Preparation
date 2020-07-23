@@ -385,7 +385,7 @@ void mirror(Node *node)
 
 //balanced binary tree(diff between left subtree or right subtree should be less than 1 for any given node)
 
-//O(NlogN0)
+//O(NlogN)
 int height(TreeNode *node)
 {
     if (node == NULL)
