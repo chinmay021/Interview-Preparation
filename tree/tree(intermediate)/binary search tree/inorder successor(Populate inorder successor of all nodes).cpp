@@ -1,14 +1,15 @@
-void inorderSuccessor(node* p, node* &next){ // reverse inorder traversal
-    if (p)  
-    {  
-        inorderSuccessor(p->right,next);  
-        p->next = next;  
-        next = p;  
-        inorderSuccessor(p->left,next);  
+void inorderSuccessor(Node *p, node *&succ)
+{ // reverse inorder traversal
+    if (p)
+    {
+        inorderSuccessor(p->right, succ);
+        p->next = succ;
+        succ = p;
+        inorderSuccessor(p->left, succ);
     }
 }
-void populateNext(node* p)  
-{  
-    node *next = NULL;  
-    inorderSuccessor(p,next); 
-}  
+void populateNext(Node *p)
+{
+    node *succ = NULL;
+    inorderSuccessor(p, succ);
+}
