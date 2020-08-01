@@ -2,22 +2,22 @@
 
 void sort(stack<int> &s)
 {
-    stack<int> t;
+    stack<int> temp;
 
     while (!s.empty())
     {
         int temp = s.top();
         s.pop();
 
-        while (!t.empty() && t.top() > temp)
+        while (!temp.empty() && t.top() > temp)
         {
             int x = t.top();
-            t.pop();
+            temp.pop();
             s.push(x);
         }
-        t.push(temp);
+        temp.push(temp);
     }
-    s = t;
+    s = temp;
 }
 
 //using priority queue
