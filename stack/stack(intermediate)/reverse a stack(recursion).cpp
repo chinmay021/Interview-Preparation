@@ -1,18 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void insertBottom(stack<int> &s, int temp)
+void insertBottom(stack<int> &s, int ele)
 {
     if (s.empty())
     {
-        s.push(temp);
+        s.push(ele);
     }
     else
     {
-        int temp2 = s.top();
+        int temp = s.top();
         s.pop();
-        insertBottom(s, temp);
-        s.push(temp2);
+        insertBottom(s, ele);
+        s.push(temp);
     }
 }
 void reverse(stack<int> &s)
@@ -23,10 +23,10 @@ void reverse(stack<int> &s)
     }
     else
     {
-        int temp = s.top();
+        int ele = s.top();
         s.pop();
         reverse(s);
-        insertBottom(s, temp);
+        insertBottom(s, ele);
     }
 }
 
