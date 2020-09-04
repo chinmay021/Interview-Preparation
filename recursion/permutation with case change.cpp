@@ -1,3 +1,6 @@
+
+#include <bits/stdc++.h>
+using namespace std;
 void solve(string ip, string op)
 {
     if (ip.length() == 0)
